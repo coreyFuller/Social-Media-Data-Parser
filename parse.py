@@ -22,6 +22,16 @@ min_chat = min(most_freq_rec.values())
 print("Most frequent recieved chat: %s \  %d" % (max_user, max_chat))
 print("Least frequent recieved chat: %s \  %d\r\n" % (min_user, min_chat))
 
+res = sorted(most_freq_rec.items(), key=lambda kv: kv[1], reverse=True)
+print("top 10 snapchatters that messaged you this month: ")
+res = res[:10]
+for r in res:
+    print(r[0])
+
+print("\n\n")
+    
+
+
 
 ####################################################################
 
@@ -43,6 +53,15 @@ min_chat = min(most_freq_sent.values())
 
 print("Most frequent sent chat: %s \  %d" % (max_user, max_chat))
 print("Least frequent sent chat: %s \  %d\r\n" % (min_user, min_chat))
+
+res = sorted(most_freq_sent.items(), key=lambda kv: kv[1], reverse=True)
+print("top 10 snapchatters that you messaged this month: ")
+res = res[:10]
+for r in res:
+    print(r[0])
+
+print("\n\n")
+    
 
 ###################
 
