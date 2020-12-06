@@ -64,7 +64,7 @@ sorted_views = sorted(date_to_view, key=date_to_view.get,reverse=True)
 date_only_dict = {}
 
 print("Top days for views in the past month: ")
-for date in sorted_views:
+for date in sorted_views[:25]:
     date = date.split(" ")
     if date[0] not in date_only_dict:
         date_only_dict[date[0]] = None
