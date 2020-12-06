@@ -1,6 +1,7 @@
 import json
 import os
 import datetime
+import requests
 
 memories = open("json/memories_history.json")
 data = json.loads(memories.read())
