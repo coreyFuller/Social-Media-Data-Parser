@@ -1,5 +1,4 @@
 from json import loads
-import operator as op
 
 
 ### reading recieved chat data
