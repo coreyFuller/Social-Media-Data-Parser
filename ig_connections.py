@@ -1,8 +1,9 @@
 import json
 
-ig = open("Instagram/connections.json", "r")
-s = ig.read()
+followings = open("Instagram/connections.json", "r")
+s = followings.read()
 data = json.loads(s)
+
 not_back = []
 un_acked = []
 for following in data["following"].keys():
@@ -27,3 +28,20 @@ for user in un_acked:
     print("%d - %s" % ( i, user))
     i+=1
         
+
+likes = open('instagram/likes.json', 'r')
+s = likes.read()
+data = json.loads(s)
+media_likes = data['media_likes']
+likes_dict = {}
+
+for user in media_likes:
+    username = user[1]
+    if username not in likes_dict:
+        likes_dict[username] = 1
+    else:
+        likes_dict[username] += 1
+        
+most_liked = max_user = max(likes_dict, key=likes_dict.get)
+print("Most liked page at %d likes: %s" % (likes_dict[most_liked], most_liked))
+pass
