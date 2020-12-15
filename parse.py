@@ -2,7 +2,7 @@ from json import loads
 
 
 ### reading recieved chat data
-chats = open("json/chat_history.json", "r")
+chats = open("Snapchat/json/chat_history.json", "r")
 s = chats.read()
 data = loads(s)
 most_freq_rec = {}
@@ -68,7 +68,7 @@ print("\n\n")
 ### reading story view data
 
 story_dict = {}
-stories = open("json/story_history.json", "r")
+stories = open("Snapchat/json/story_history.json", "r")
 data = loads(stories.read())
 
 date_to_view = {}

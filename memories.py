@@ -3,7 +3,7 @@ import os
 import datetime
 import requests
 
-memories = open("json/memories_history.json")
+memories = open("Snapchat/json/memories_history.json")
 data = json.loads(memories.read())
 
 for info in data['Saved Media']:
