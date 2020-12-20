@@ -15,7 +15,7 @@
 ## dependencies to run
 
 - python 3.8 or better
-- requests, json python modules
+- requests, json, geopy python modules
 - Windows or linux OS
 
 ## To run
