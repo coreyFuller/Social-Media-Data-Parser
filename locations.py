@@ -1,32 +1,48 @@
 import json
 from geopy.geocoders import Nominatim
 
-geolocator = Nominatim(user_agent="geoapiExercises")
+    
+def getFrequency(locations, geolocator):
+    mostFreuqent = max(locations, key=locations.get)
+    leastFrequent = min(locations, key = locations.get)
+    most = findLocation(mostFreuqent, geolocator)
+    least = findLocation(leastFrequent, geolocator)
+    return least, most
 
-fp = open("Snapchat/json/location_history.json", "r")
+def findLocation(coordinates, geolocator):
+    Lat = str(coordinates[0])
+    Long = str(coordinates[1])
+    location = geolocator.reverse(Lat + "," + Long) 
+    info = str(location).split(",")
+    return info
+    
+def getLocations(location_history):
+    loc_dict = {}
+    for location in location_history:
+        latAndLong = location['Latitude, Longitude']
+        latAndLong = latAndLong.split(",")
+        latitude = latAndLong[0].split(" ")[0]
+        longitude = latAndLong[1].split(" ")[1]
+        latAndLong = (latitude, longitude)
+        if latAndLong not in loc_dict:
+            loc_dict[latAndLong] = 1
+        else:
+            loc_dict[latAndLong] += 1
+    return loc_dict
+    
 
-pure_text = fp.read()
-locations = json.loads(pure_text)
-location_history = locations["Location History"]
+def getHistory(filepath):
+    fp = open("Snapchat/json/location_history.json", "r")
+    pure_text = fp.read()
+    locations = json.loads(pure_text)
+    location_history = locations["Location History"]
+    return location_history
 
-loc_dict = {}
-for location in location_history:
-    latAndLong = location['Latitude, Longitude']
-    latAndLong = latAndLong.split(",")
-    latitude = latAndLong[0].split(" ")[0]
-    longitude = latAndLong[1].split(" ")[1]
-    latAndLong = (latitude, longitude)
-    if latAndLong not in loc_dict:
-        loc_dict[latAndLong] = 1
-    else:
-        loc_dict[latAndLong] += 1
-        
-most_loc = max(loc_dict, key=loc_dict.get)
-least_loc = min(loc_dict, key=loc_dict.get)
+def run():
+    geolocator = Nominatim(user_agent="geoapiExercises")
+    location_history = getHistory("Snapchat/json/location_history.json")
+    locations = getLocations(location_history)
+    data = getFrequency(locations, geolocator)
+    pass
 
-Lat = str(most_loc[0])
-Long = str(most_loc[1])
-location = geolocator.reverse(Lat + "," + Long) 
-info = str(location).split(",")
-
-print("%s, %s" % (info[3], info[4]))
+run()
