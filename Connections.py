@@ -50,7 +50,6 @@ def getLikesInfo(filename):
     likes = buildLikesDictionary(media_likes)
     return likes
     
-    
 def run():
     connection_data = getConnectionsInfo("Instagram/connections.json")
     likes = getLikesInfo("Instagram/likes.json")
