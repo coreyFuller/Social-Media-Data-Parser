@@ -1,7 +1,7 @@
 # Social Media Data Parser
 
 
-## This application parses data from several different social media platforms. Platforms supported right now:
+## This application parses personal data from several different social media platforms. Platforms supported right now:
 
 - Instagram
 - Snapchat
