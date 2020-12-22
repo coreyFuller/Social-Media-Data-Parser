@@ -1,7 +1,6 @@
 import json
 from geopy.geocoders import Nominatim
 
-    
 def getFrequency(locations, geolocator):
     mostFreuqent = max(locations, key=locations.get)
     leastFrequent = min(locations, key = locations.get)
