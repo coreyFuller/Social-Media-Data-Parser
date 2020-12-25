@@ -1,6 +1,5 @@
 import json
 
-
 def getNotFollowedBack(connections):
     not_back = []
     print(connections["following"])
@@ -21,11 +20,7 @@ def getConnectionsInfo(filename):
     fp = open(filename, "r")
     s = fp.read()
     data = json.loads(s)
-    
-    not_following_back = getNotFollowedBack(data)
-    unacked_requests = getUnacknowledgedRequests(data)
-    
-    return not_following_back, unacked_requests
+    return data
 
 def buildLikesDictionary(media_likes):
     likes_dict = {}
@@ -54,10 +49,6 @@ def run():
     connection_data = getConnectionsInfo("Instagram/connections.json")
     likes = getLikesInfo("Instagram/likes.json")
     frequency = getFrequency(likes)
-    print("Most liked page at %d likes: %s" % (likes[frequency[1]], frequency[1]))
-    print(connection_data[0])
-    print("\n\n\n\n\n")
-    print(connection_data[1])
 
 run()  
 

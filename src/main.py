@@ -1,8 +1,12 @@
-from snapchat import friends
+from snapchat import snapchat
+from instagram import instagram 
+
 def main():
-    metadata = friends.readFile("Snapchat/json/friends.json")
-    print(metadata)
-    
+    ig = instagram.Instagram()
+    snap = snapchat.Snapchat()
+    ig.run()
+    snap.run()
+    print("here")
 
 if __name__ == "__main__":
     main()
