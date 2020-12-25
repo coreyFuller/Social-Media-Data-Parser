@@ -1,10 +1,10 @@
 from json import loads
-
-def readFile(filepath):
+def getCommentsInfo(filepath=" "):
     fp = open(filepath, encoding="utf8")
     s = fp.read()
     metadata = loads(s)
     return metadata
+    
 
 def getMostCommented(metadata, my_username='cjfuller_official'):
     user_dict = {}
@@ -20,8 +20,9 @@ def getMostCommented(metadata, my_username='cjfuller_official'):
      
 
 def run():
-    metadata = readFile("Instagram/comments.json")
-    info = getMostCommented(metadata)
-    print(info)
+    # metadata = readFile("Instagram/comments.json")
+    # info = getMostCommented(metadata)
+    # print(info)
+    pass
     
 run()
