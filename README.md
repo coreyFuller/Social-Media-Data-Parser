@@ -21,8 +21,6 @@
 ## To run
 
 1. Request social media platform data
-2.  Extract it into the directory named for the platofrm
-3.  To run python files independently do `python ___.py`
-4.  To run all the files use the run.* script file for whatever OS you're on. run.ps1 for powershell, run.sh for linux
-
+2.  Extract it into the directory named for the platform 
+3. Making changes TBA
 
