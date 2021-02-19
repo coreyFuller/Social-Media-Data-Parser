@@ -10,6 +10,7 @@
 
 - Discord
 - LinkedIn
+- Tinder
 
 
 ## dependencies to run
